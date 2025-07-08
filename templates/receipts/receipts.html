@@ -1,0 +1,23 @@
+<!-- templates/receipts/receipt.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Receipt</title>
+    <style>
+        body { font-family: sans-serif; padding: 2rem; }
+        .header { text-align: center; font-size: 24px; font-weight: bold; }
+        .info { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="header">Cape Chestnut School - Fee Receipt</div>
+    <div class="info">
+        <p><strong>Parent:</strong> {{ payment.parent.get_full_name }}</p>
+        <p><strong>Student:</strong> {{ payment.student_name }}</p>
+        <p><strong>Amount Paid:</strong> KES {{ payment.amount_paid }}</p>
+        <p><strong>Payment Method:</strong> {{ payment.payment_method }}</p>
+        <p><strong>Date:</strong> {{ payment.payment_date }}</p>
+    </div>
+</body>
+</html>
