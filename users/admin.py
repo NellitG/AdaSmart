@@ -1,3 +1,18 @@
 from django.contrib import admin
+from .models import User, Student, Parent
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
-# Register your models here.
+@admin.register(User)
+class UserAdmin(BaseUserAdmin):
+    fieldsets = BaseUserAdmin.fieldsets + (
+        ('Extra Info', {'fields': ('name', 'role', 'phone_number')}),
+    )
+    add_fieldsets = BaseUserAdmin.add_fieldsets + (
+        ('Extra Info', {'fields': ('name', 'phone_number')}),
+    )
+    list_display = ('name', 'phone_number')
+
+@admin.register(Student)
+class StudentAdmin(admin.ModelAdmin):
+    list_display = ('full_name','parent')
+    search_fields = ('full_name',)
