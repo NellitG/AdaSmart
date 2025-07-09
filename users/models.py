@@ -34,6 +34,3 @@ class Parent(models.Model):
 
     def __str__(self):
         return self.full_name
-    
-    # Git commit message to changes made in users/models.py
-# Added User model with role choices, phone number, and custom string representation.
