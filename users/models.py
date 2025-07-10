@@ -26,6 +26,15 @@ class Student(models.Model):
     def __str__(self):
         return self.full_name
     
+    @property
+    def total_paid(self):
+        from payments.models import FeePayment
+        return self.fee_payment - self.fee_balance
+     
+    @property
+    def balance(self):
+        return self.fee_balance 
+    
 class Parent(models.Model):
     full_name = models.CharField(max_length=100)
     student = models.ForeignKey(User, on_delete=models.CASCADE, limit_choices_to={'role': 'student'}, related_name='parent')
