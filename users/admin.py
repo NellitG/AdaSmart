@@ -14,5 +14,11 @@ class UserAdmin(BaseUserAdmin):
 
 @admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
-    list_display = ('full_name','parent')
-    search_fields = ('full_name',)
+    list_display = ('full_name', 'admission_number', 'parent', 'total_paid', 'balance')
+    readonly_fields = ('total_paid', 'balance')
+
+    def total_paid(self, obj):
+        return obj.total_paid
+
+    def balance(self, obj):
+        return obj.balance
