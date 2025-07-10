@@ -17,19 +17,7 @@ class FeePaymentAdmin(admin.ModelAdmin):
     
 @admin.register(FeeBalance)
 class FeeBalanceAdmin(admin.ModelAdmin):
-    list_display = ('student_name', 'total_fee', 'paid_fee', 'due_fee')
+    list_display = ('parent', 'balance')
+    search_fields = ('parent__name',)
 
-    def student_name(self, obj):
-        return f"{obj.student.first_name} {obj.student.last_name}"
-
-    student_name.short_description = 'Student Name'
-    
-    def total_fee(self, obj):
-        return obj.total_fee
-
-    def paid_fee(self, obj):
-        return obj.paid_fee
-
-    def due_fee(self, obj):
-        return obj.due_fee
 
