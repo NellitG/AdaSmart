@@ -1,9 +1,7 @@
 **How To Use The Django Template Repository**
 
-env already installed
 
-
-      env\Scripts\activate
+Install env
 
       
 Create your django project
