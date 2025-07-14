@@ -4,7 +4,6 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     ROLE_CHOICES = (
         ('admin', 'Admin'),
-        ('student', 'Student'),
         ('parent', 'Parent'),
     )
     name = models.CharField(max_length=100, blank=True, null=True)
